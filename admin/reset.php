@@ -15,4 +15,3 @@ if ($result) {
     header("Location: dashboard.php?msg=done");
     exit();
 }
-?>

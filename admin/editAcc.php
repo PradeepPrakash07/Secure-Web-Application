@@ -9,14 +9,14 @@ if (isset($_POST["submit"])) {
 if (check_Empty($fullName, $password, $repassword) !== false) {
     header("location: edit.php?error=emptyfield");
     exit();
-    }
+}
 
 if (invalidUsername($fullName) !== false) {
     header("location: edit.php?error=invalidUsername");
     exit();
-    }
+}
 
-if(passmatch($password, $repassword) !== false){
+if(passmatch($password, $repassword) !== false) {
     header("location: edit.php?error=pwdnotmatch");
     exit();
 }
@@ -31,21 +31,21 @@ function check_Empty($fullName, $password, $repassword){
     return false;
 }
 
-function invalidUsername($fullName){
+function invalidUsername($fullName) {
     if (!preg_match("/^[a-zA-Z0-9 ]*$/", $fullName)) {
         return true;
     }
     return false;
 }
 
-function passmatch($password,$repassword){
-
-    if($password !== $repassword){
+function passmatch($password,$repassword) {
+ 
+    if($password !== $repassword) {
     return true;
     }
     return false;
 }
-function createAdmin($conn,$fullName,$password){
+function createAdmin($conn,$fullName,$password) {
     $query = "INSERT INTO admins(name,password) VALUES (?,?);";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement,$query)) {
@@ -58,5 +58,4 @@ function createAdmin($conn,$fullName,$password){
     mysqli_stmt_close($statement);
     header("location: index.php?error=none");
     exit();    
-
 }

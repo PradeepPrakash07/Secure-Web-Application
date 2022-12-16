@@ -54,20 +54,20 @@ if (!isset($_SESSION['admin'])) {
             $conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
             if (!$conn) {
                 die("Connection failed : " . mysqli_connect_error());
-            }
+        }
             $sql = "SELECT * FROM users";
             $result = $conn->query($sql);
             if (!$result) {
-                die("invalid query" . $conn->error);
+                die(" invalid query " . $conn->error);
             }
-            while ($row = $result->fetch_assoc()) {
-                echo '<div class="table-row">		
-                <div class="table-data">'. $row["userName"].'</div>
-                <div class="table-data">'. $row["userUsername"].'</div>
-                <div class="table-data">'. $row["usersId"].'</div>
-                <div class="table-data"><a href=reset.php?usrid='. $row["usersId"].'>reset</a></div>
-                </div>';
-            }
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="table-row">		
+            <div class="table-data">'. $row["userName"].'</div>
+            <div class="table-data">'. $row["userUsername"].'</div>
+            <div class="table-data">'. $row["usersId"].'</div>
+            <div class="table-data"><a href=reset.php?usrid='. $row["usersId"].'>reset</a></div>
+            </div>';
+        }
             ?>  
         </div>
         </div>

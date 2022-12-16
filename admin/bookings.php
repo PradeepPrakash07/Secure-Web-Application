@@ -52,15 +52,15 @@ if (!isset($_SESSION['admin'])) {
                 $dbPassword = "";
                 $dbName = "registration";
                 $conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
-                if (!$conn) {
-                    die("Connection failed : " . mysqli_connect_error());
+            if (!$conn) {
+                    die(" Connection failed : " . mysqli_connect_error());
                 }
                 $sql = "SELECT * FROM bookings";
                 $result = $conn->query($sql);
                 if (!$result) {
-                    die("invalid query" . $conn->error);
+                die(" invalid query " . $conn->error);
                 }
-                while ($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {
                 echo '<div class="table-row">		
                 <div class="table-data">'. $row["userName"].'</div>
                 <div class="table-data">'. $row["usrId"].'</div>
