@@ -1,20 +1,25 @@
 <?php
 
-// ---------------------------------admin login------------------------//
+/* ---------------------------------admin login------------------------*/
 
-function checkEmptylogin($userName, $password) {
+function checkEmptylogin($userName, $password) 
+{
     if (empty($userName)||empty($password)) {
-    return true;
-}
+        return true;
+    }
+
     return false;
+
 }
 
-function adminExists($conn, $adminName) {
+
+function adminExists($conn, $adminName) 
+{
     $query = "SELECT * FROM admins WHERE name = ?;";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement,$query)) {
-    header("location: ../admin/admin.php?error=failed");
-    exit();
+        header("location: ../admin/admin.php?error=failed");
+        exit();
 }
     mysqli_stmt_bind_param($statement,"s", $adminName);
     mysqli_stmt_execute($statement);
@@ -25,23 +30,24 @@ function adminExists($conn, $adminName) {
     else {
         mysqli_stmt_close($statement);
         return false;
-}
+    }
 }
 
-function validateAdminLogin($password, $conn, $adminName) {
+function validateAdminLogin($password, $conn, $adminName) 
+{
     $userExists = adminExists($conn, $adminName);
     if ($userExists === false) {
         header("location: ../admin/index.php?error=notanadmin");
         exit();
-        //return true;
+        // return true;
 }
     $hashedpwd = $userExists["password"];
     $chkdPass = password_verify($password,$hashedpwd);
-    if($chkdPass === false){
+    if ($chkdPass === false) {
         header("location: ../admin/index.php?error=wrngpassn");
         exit();
         // return true;
-}
+    }
     return false;
 
 }

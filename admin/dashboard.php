@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
+if (isset($_SESSION['admin']) === FALSE) {
     header("Location: index.php?nosession");
 }
 ?>
@@ -52,9 +52,10 @@ if (!isset($_SESSION['admin'])) {
             $dbPassword = "";
             $dbName = "registration";
             $conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
-            if (!$conn) {
-                die("Connection failed : " . mysqli_connect_error());
-        }
+        if (!$conn) {
+            die("Connection failed : " . mysqli_connect_error());
+            }
+
             $sql = "SELECT * FROM users";
             $result = $conn->query($sql);
             if (!$result) {
@@ -68,7 +69,7 @@ if (!isset($_SESSION['admin'])) {
             <div class="table-data"><a href=reset.php?usrid='. $row["usersId"].'>reset</a></div>
             </div>';
         }
-            ?>  
+        ?>  
         </div>
         </div>
     </div>

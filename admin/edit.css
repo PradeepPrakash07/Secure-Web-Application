@@ -1,7 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
 }
 
@@ -52,8 +52,7 @@ h1 {
   transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.input:focus, 
-input:hover {
+.input:focus, input:hover {
   outline: none;
   padding: .2rem 1rem;
   border-radius: 1rem;
@@ -94,8 +93,7 @@ button {
 button:hover {
   border: 1px solid white;
 }
-
-   
+ 
 button:active {
   box-shadow: 4px 4px 12px #c5c5c5,
             -4px -4px 12px #ffffff;
