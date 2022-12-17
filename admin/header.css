@@ -1,4 +1,4 @@
-a{
+a {
   text-decoration: none;
   text-align: center;
   padding: 14px 5px;
@@ -8,12 +8,12 @@ a{
   display: block;
 }
 
-li{
+li {
   /* float: left; */
   display: inline;
 }
 
-ul{
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -29,14 +29,14 @@ li a:hover {
   color: #92E3A9;
 }
 
-header{
+header {
   position: fixed;
   top: 50%;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  float: left;  
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  float: left;
   font-size: 16px;
   border-radius: 3px;
   padding: 30px;
-  background-color: #FFF;
-  text-shadow: 1px 1px 0 #FFF;
+  background-color: #fff;
+  text-shadow: 1px 1px 0 #fff;
 }

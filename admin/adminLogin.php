@@ -8,14 +8,14 @@ if (isset($_POST["submit"])) {
     if (checkEmptylogin($adminName, $password) !== false) {
         header("location: ../index.php?error=emptyfield");
         exit();
+    
     }
     validateAdminLogin($password, $conn, $adminName);
     session_start();
     $_SESSION['admin'] = 'TRUE';
     header("location: dashboard.php");
     exit();
-}
-else {
+} else {
     header("location: index.php?error=noadmin");
 
 }
